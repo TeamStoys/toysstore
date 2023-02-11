@@ -15,4 +15,13 @@ class ProductController extends AbstractController
             'controller_name' => 'ProductController',
         ]);
     }
+    /**
+         * @Route("/sup/{id}", name="car_sup")
+         */
+        public function carSupAction( int $id): Response
+        {
+            return $this->render('product/index.html.twig', [
+            'controller_name' => $id
+        ]);
+        }
 }
