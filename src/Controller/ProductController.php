@@ -12,8 +12,9 @@ class ProductController extends AbstractController
     public function index(): Response
     {
         $r ="ggg";
+        $e = "gyghf";
         return $this->render('product/index.html.twig', [
-            'controller_name' => $r
+            'controller_name' => $r.$e
         ]);
     }
 }
