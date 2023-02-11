@@ -8,22 +8,11 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProductController extends AbstractController
 {
-    #[Route('/product/{id}', name: 'app_product')]
-    public function index(int $id): Response
+    #[Route('/product', name: 'app_product')]
+    public function index(): Response
     {
-        $r ="ggg";
-        $e = "gyghf";
         return $this->render('product/index.html.twig', [
-            'controller_name' => $r.$id
+            'controller_name' => 'ProductController',
         ]);
     }
-    /**
-         * @Route("/sup/{id}", name="car_sup")
-         */
-        public function carSupAction( int $id): Response
-        {
-            return $this->render('product/index.html.twig', [
-            'controller_name' => $id
-        ]);
-        }
 }
