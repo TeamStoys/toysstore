@@ -30,10 +30,10 @@
                         
                         <hr class="singleline">
                         <div class="order_info d-flex flex-row">
-                            <form action="#">
+                            {# <form action="#"> #}
                         </div>
                         <div class="row">
-                            <form action="#" method="get">
+                            <form action="{{ path('add_cart',{"id":p.id}) }}" method="GET">
                             <div class="col-lg-3 mb-4" style="margin-left: 13px;">
                                 <div class="form-group">
                                     <label for="qty_label">Quantity:</label>

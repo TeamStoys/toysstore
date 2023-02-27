@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Cart;
 use App\Entity\Product;
+use App\Form\AddToCartType;
 use App\Form\ProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -33,15 +35,7 @@ class ProductController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("/{id}", name="product_read",requirements={"id"="\d+"})
-     */
-    public function showAction(Product $p): Response
-    {
-        return $this->render('detail.html.twig', [
-            'p'=>$p
-        ]);
-    }
+    
 
     /**
     * @Route("/add", name="product_create")
@@ -122,4 +116,25 @@ class ProductController extends AbstractController
        $this->repo->remove($p,true);
        return $this->redirectToRoute('product_show', [], Response::HTTP_SEE_OTHER);
    }
+    // /**
+    //  * @Route("/detail/{id}", name="product_detail")
+    //  */
+    // public function detail(Product $product, Request $request, Cart $cartManager)
+    // {
+    //     $form = $this->createForm(AddToCartType::class);
+
+    //     $form->handleRequest($request);
+
+    //     if ($form->isSubmitted() && $form->isValid()) {
+    //         $item = $form->getData();
+    //         $item->setProduct($product);
+
+    //         return $this->redirectToRoute('product_detail', ['id' => $product->getId()]);
+    //     }
+
+    //     return $this->render('cart.html.twig', [
+    //         'product' => $product,
+    //         'form' => $form->createView()
+    //     ]);
+    // }
 }
